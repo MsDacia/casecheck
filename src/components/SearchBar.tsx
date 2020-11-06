@@ -37,7 +37,7 @@ export default component({
 					data-test="search-quote-gardens"
 					name="search"
 					onKeydown={this.handleKeyDown}
-					placeholder="Type to search ..."
+					placeholder="type to search ..."
 					type="search"
 					v-model_trim={this.query}
 				/>
@@ -56,6 +56,7 @@ export default component({
 
 const styleSearchBar = style({
 	display: 'flex',
+	marginTop: 40,
 
 	$nest: {
 		'input': {
