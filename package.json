@@ -1,0 +1,52 @@
+{
+  "name": "data-driven-application-front-end-challenge",
+  "version": "0.1.0",
+  "private": false,
+  "author": "Dacia Rodrigue <msdessin@gmail.com>",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "test:e2e": "vue-cli-service test:e2e",
+    "lint": "vue-cli-service lint",
+    "start": "npm run serve",
+    "test": "npm run test:unit",
+    "test:coverage": "npm test && open-cli coverage/lcov-report/index.html"
+  },
+  "dependencies": {
+    "core-js": "3.6.5",
+    "csx": "10.0.1",
+    "shortid": "2.2.15",
+    "typestyle": "2.1.0",
+    "vue": "2.6.11",
+    "vue-router": "3.3.3",
+    "vue-strict-prop": "0.3.6",
+    "vue-tsx-support": "2.3.3"
+  },
+  "devDependencies": {
+    "@types/shortid": "0.0.29",
+    "@typescript-eslint/eslint-plugin": "2.22.0",
+    "@typescript-eslint/parser": "2.22.0",
+    "@vue/cli-plugin-babel": "4.4.6",
+    "@vue/cli-plugin-e2e-cypress": "4.5.8",
+    "@vue/cli-plugin-eslint": "4.4.6",
+    "@vue/cli-plugin-router": "4.4.6",
+    "@vue/cli-plugin-typescript": "4.4.6",
+    "@vue/cli-plugin-unit-jest": "4.4.6",
+    "@vue/cli-service": "4.4.6",
+    "@vue/eslint-config-typescript": "5.0.2",
+    "@vue/test-utils": "1.0.0-beta.31",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "10.1.0",
+    "eslint": "6.8.0",
+    "eslint-plugin-vue": "6.2.2",
+    "open-cli": "6.0.1",
+    "typescript": "3.9.5",
+    "vue-template-compiler": "2.6.11"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
