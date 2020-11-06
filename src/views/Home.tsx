@@ -14,6 +14,8 @@ export default component({
 
 				<section>
 					<SearchBar />
+
+					{/* Add filter dropdown */}
 				</section>
 
 				<section>

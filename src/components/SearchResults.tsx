@@ -4,14 +4,11 @@ import quoteStore from '@/store/quoteGardenStore'
 
 export default component({
 	name: 'SearchResults',
-	async mounted() {
-		await quoteStore.fetchQuotes()
-	},
 	render() {
 		return (
 			<main>
 				<section>
-					<ul>
+					<ul data-test="search-results">
 						{quoteStore.quotes.map(quote => <Quote quote={quote} />)}
 					</ul>
 				</section>

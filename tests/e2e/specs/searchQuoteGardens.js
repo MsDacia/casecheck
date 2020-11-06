@@ -17,12 +17,11 @@ describe('Access Quote Gardens landing page', () => {
 
 	it('should be able to execute a search via enter key press', () => {
 		cy.get('[data-test=search-quote-gardens]')
+			.clear()
 			.type('test{enter}')
-
-		it('should have search results', () => {
-			cy.get('[data-test=quote-gardens-results')
-				.should('be.visible')
-		})
 	})
-
+	it('should have search results', () => {
+		cy.get('[data-test=search-results')
+			.should('be.visible')
+	})
 })

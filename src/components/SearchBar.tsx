@@ -1,41 +1,40 @@
 import { component } from 'vue-tsx-support'
+import quoteStore from '@/store/quoteGardenStore'
 
 export default component({
 	name: 'SearchBar',
 	data() {
 		return {
-			errorMessage: '',
 			query: '',
 			showErrorMessage: false,
 		}
 	},
 	methods: {
 		/**
-		 * Execute search
+		 * Method to handle onKeydown to execute search
 		 */
-		async executeSearch(event: KeyboardEvent) {
-			try {
-				// Search logic
-				console.log('search executed')
-			} catch (error) {
-				this.showErrorMessage = true
-				this.errorMessage = error
+		handleKeyDown(event: KeyboardEvent) {
+			if (event.keyCode === 13) {
+				console.log('Enter key pressed')
+				quoteStore.fetchQuotes(this.query)
 			}
 		},
 	},
+
 	render() {
 		return (
 			<div>
 				<input
-					type="search"
-					name="search"
-					placeholder="Search&hellip;"
-					v-model_trim={this.query}
-					onKeydown={(e) => this.executeSearch(e)}
 					data-test="search-quote-gardens"
+					name="search"
+					onKeyup={() => this.handleKeyDown}
+					placeholder="Type to search ..."
+					type="search"
+					v-model_trim={this.query}
 				/>
-				{this.showErrorMessage &&
-					<p>{this.errorMessage}</p>
+				<button data-test="search-quote-grands-button" onClick={() => quoteStore.fetchQuotes(this.query)}>search</button>
+				{quoteStore.errorMessage &&
+					<p>{quoteStore.errorMessage}</p>
 				}
 			</div>
 		)
