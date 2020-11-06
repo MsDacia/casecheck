@@ -1,13 +1,24 @@
 import Vue from 'vue'
 
+export interface Author {
+	firstName: string
+	lastName: string
+}
 export interface Quote {
-	_id: string,
-	quoteText: string,
+	author: Author
+	id: string
+	name: string
+	quote: string
+}
+
+interface QuoteResponse {
+	_id: string
 	quoteAuthor: string
+	quoteText: string
 }
 
 interface QuotesResponse {
-	quotes: Quote[]
+	quotes: QuoteResponse[]
 }
 
 const state = Vue.observable({
@@ -15,6 +26,18 @@ const state = Vue.observable({
 	isProcessing: false,
 	quotes: [] as Quote[],
 })
+
+function splitName(name: string) {
+	const fullName = name.split(' ')
+
+	const lastName = fullName.pop() || ''
+	const firstName = fullName.join(' ')
+
+	return {
+		firstName,
+		lastName,
+	}
+}
 
 export default {
 	// Getters
@@ -34,8 +57,14 @@ export default {
 		try {
 			const response = await fetch(`https://quote-garden.herokuapp.com/api/v2/quotes/${searchQuery}`)
 			const quotesResponse: QuotesResponse = await response.json()
-			state.quotes = quotesResponse.quotes
-			// Transform data from response
+			state.quotes = quotesResponse.quotes.map(quote => {
+				return {
+					id: quote._id,
+					author: splitName(quote.quoteAuthor),
+					name: quote.quoteAuthor,
+					quote: quote.quoteText,
+				}
+			})
 		} catch (error) {
 			console.error(error)
 			state.errorMessage = error

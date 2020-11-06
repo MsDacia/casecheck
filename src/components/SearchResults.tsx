@@ -11,7 +11,7 @@ export default component({
 	},
 	computed: {
 		filteredQuotes(): Quote[] {
-			return quoteStore.quotes.filter(quote => quote.quoteAuthor.includes(this.author))
+			return quoteStore.quotes.filter(quote => quote.name.includes(this.author))
 		},
 	},
 	render(): JSX.Element {
@@ -23,13 +23,11 @@ export default component({
 					</ul>
 				</section>
 
-				{this.filteredQuotes.length &&
-					<div>
-						<select v-model={this.author} name="author">
-							<option value="">Filter quotes by author name</option>
-							{this.filteredQuotes.map(option => <option value={option.quoteAuthor}>{option.quoteAuthor}</option>)}
-						</select>
-					</div>
+				{this.filteredQuotes.length > 0 &&
+					<select v-model={this.author} name="author">
+						<option value="">Filter by name</option>
+						{this.filteredQuotes.map(option => <option value={option.name}>{option.name}</option>)}
+					</select>
 				}
 			</main>
 		)

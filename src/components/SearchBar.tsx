@@ -14,9 +14,15 @@ export default component({
 		 * Method to handle onKeydown to execute search
 		 */
 		handleKeyDown(event: KeyboardEvent) {
-			if (event.keyCode === 13) {
-				console.log('Enter key pressed')
+			if (quoteStore.isProcessing) return false
+
+			switch (event.key) {
+			case 'Enter':
 				quoteStore.fetchQuotes(this.query)
+				break
+			case 'Esc':
+				this.query = ''
+				break
 			}
 		},
 	},
@@ -27,12 +33,16 @@ export default component({
 				<input
 					data-test="search-quote-gardens"
 					name="search"
-					onKeyup={() => this.handleKeyDown}
+					onKeydown={this.handleKeyDown}
 					placeholder="Type to search ..."
 					type="search"
 					v-model_trim={this.query}
 				/>
-				<button data-test="search-quote-grands-button" onClick={() => quoteStore.fetchQuotes(this.query)}>search</button>
+				<button
+					data-test="search-quote-grands-button"
+					disabled={quoteStore.isProcessing}
+					onClick={() => quoteStore.fetchQuotes(this.query)}
+				>search</button>
 				{quoteStore.errorMessage &&
 					<p>{quoteStore.errorMessage}</p>
 				}

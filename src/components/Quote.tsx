@@ -9,9 +9,9 @@ export default component({
 	},
 	render(): JSX.Element {
 		return (
-			<li key={this.quote._id}>
-				<p data-test="quote-text">{this.quote.quoteText}</p>
-				<p data-test="quote-author">{this.quote.quoteAuthor}</p>
+			<li key={this.quote.id}>
+				<p data-test="quote-text">{this.quote.quote}</p>
+				<p data-test="quote-author">{this.quote.name}</p>
 			</li>
 		)
 	},
