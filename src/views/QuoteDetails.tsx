@@ -1,16 +1,16 @@
 import { component } from 'vue-tsx-support'
 
 export default component({
-	name: 'Details',
+	name: 'QuoteDetails',
 	render() {
 		return (
 			<main>
 				<header>
-					<h1>Details</h1>
+					<h1>Quote Details</h1>
 				</header>
 
 				<section>
-					{/* Details goes here */}
+					{/* Quote Details goes here */}
 				</section>
 			</main>
 		)

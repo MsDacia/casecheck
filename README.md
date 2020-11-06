@@ -4,7 +4,6 @@
 ```
 - Vue app developed using TypeScript
 - TypeStyle added for CSS
-- Shortid dependency added to generate random, unique IDs for each new note added
 
 ```
 ## Project setup
