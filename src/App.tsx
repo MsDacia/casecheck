@@ -39,8 +39,7 @@ cssRule('main', {
 
 	$nest: {
 		'header, section': {
-			margin: 20,
-			width: percent(100),
+			padding: 20,
 		},
 	},
 })
@@ -60,18 +59,12 @@ cssRule('a', {
 
 cssRule('button', {
 	...theme.inputStyle,
-	fontSize: 40,
-	fontStyle: 'italic',
-	fontWeight: 200,
-	height: 'auto',
-	letterSpacing: -2,
 	minWidth: 300,
 	justifyContent: 'center',
 	textAlign: 'center',
 
 	$nest: {
 		'&:hover': {
-			borderColor: theme.colorSecondaryHover,
 			color: theme.colorSecondaryHover,
 			cursor: 'pointer',
 		},

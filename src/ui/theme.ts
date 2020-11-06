@@ -29,11 +29,15 @@ export const inputStyle: NestedCSSProperties = {
 	boxShadow: 'none',
 	color: colorPrimaryDark,
 	display: 'flex',
-	fontFamily: fontFamily,
 	flex: '1 0 auto',
 	flexWrap: 'wrap',
-	height: 40,
+	fontFamily: fontFamily,
+	fontSize: 40,
+	fontStyle: 'italic',
+	fontWeight: 200,
+	height: 'auto',
 	justifyContent: 'flex-start',
+	letterSpacing: -2,
 	lineHeight: 1.1,
 	margin: 0,
 	outline: 0,
@@ -44,7 +48,7 @@ export const inputStyle: NestedCSSProperties = {
 
 	$nest: {
 		'&:hover, &:active, &.active, &:focus': {
-			borderColor: colorPrimaryMedium,
+			borderColor: colorSecondaryHover,
 			cursor: 'pointer',
 			outline: '0 none',
 		},

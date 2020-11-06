@@ -1,5 +1,5 @@
 import { style } from 'typestyle'
-import { color, percent } from 'csx'
+import { border, color, percent } from 'csx'
 import * as theme from '@/ui/theme'
 
 import { component } from 'vue-tsx-support'
@@ -12,8 +12,8 @@ export default component({
 	render() {
 		return (
 			<main>
-				<header>
-					<h1 class={styleHeading} data-test="title">
+				<header class={styleHeading}>
+					<h1 data-test="title">
 						<span>&#8220;</span>Quote Gardens
 					</h1>
 				</header>
@@ -31,19 +31,29 @@ export default component({
 })
 
 const styleHeading = style({
-	fontSize: percent(500),
-	lineHeight: 'normal',
-	margin: 0,
-	position: 'relative',
+	borderBottom: border({
+		color: theme.colorPrimaryDark,
+		style: 'solid',
+		width: 1,
+	}),
 
 	$nest: {
-		'span': {
-			color: color(theme.colorPrimaryDark).lighten('50%').toHexString(),
-			fontSize: percent(120),
-			display: 'inline-block',
-			left: -12,
-			position: 'absolute',
-			top: -10,
+		'h1': {
+			fontSize: percent(220),
+			lineHeight: 'normal',
+			margin: 0,
+			position: 'relative',
+
+			$nest: {
+				'span': {
+					color: color(theme.colorPrimaryDark).lighten('50%').toHexString(),
+					fontSize: percent(200),
+					display: 'inline-block',
+					left: -12,
+					position: 'absolute',
+					top: -10,
+				},
+			},
 		},
 	},
 })
