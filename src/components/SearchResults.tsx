@@ -1,16 +1,15 @@
 import { component } from 'vue-tsx-support'
+import Item from './Item'
 
 export default component({
 	name: 'SearchResults',
 	render() {
 		return (
 			<main>
-				<header>
-					<h1>Search Results</h1>
-				</header>
-
 				<section>
-					{/* Search Results goes here */}
+					<ul>
+						<Item />
+					</ul>
 				</section>
 			</main>
 		)
