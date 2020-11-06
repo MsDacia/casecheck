@@ -1,6 +1,6 @@
 import { style } from 'typestyle'
 import * as theme from '@/ui/theme'
-import { percent } from 'csx'
+import { margin, percent } from 'csx'
 
 import { component } from 'vue-tsx-support'
 import QuoteItem from './Quote'
@@ -32,7 +32,7 @@ export default component({
 					</select>
 				}
 
-				<ul data-test="search-results">
+				<ul class={styleSearchResults} data-test="search-results">
 					{this.filteredQuotes.map(quote => <QuoteItem quote={quote} />)}
 				</ul>
 			</div>
@@ -45,4 +45,11 @@ const styleSelect = style({
 	appearance: 'none',
 	textTransform: 'lowercase',
 	width: percent(50),
+})
+
+const styleSearchResults = style({
+	margin: margin(40, 20),
+	maxHeight: 300,
+	overflowY: 'auto',
+	padding: 0,
 })

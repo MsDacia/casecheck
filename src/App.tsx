@@ -1,5 +1,5 @@
 import { cssRaw, cssRule } from 'typestyle'
-import { percent, viewHeight } from 'csx'
+import { color, percent, viewHeight } from 'csx'
 import { component } from 'vue-tsx-support'
 
 import * as theme from '@/ui/theme'
@@ -69,4 +69,13 @@ cssRule('button', {
 			cursor: 'pointer',
 		},
 	},
+})
+
+cssRule('.styled-quotes', {
+	color: color(theme.colorPrimaryDark).lighten('50%').toHexString(),
+	fontSize: percent(200),
+	display: 'inline-block',
+	left: -12,
+	position: 'absolute',
+	top: -10,
 })

@@ -14,7 +14,7 @@ export default component({
 			<main>
 				<header class={styleHeading}>
 					<h1 data-test="title">
-						<span>&#8220;</span>Quote Gardens
+						<span class="styled-quotes">&#8220;</span>Quote Gardens
 					</h1>
 				</header>
 
@@ -43,17 +43,6 @@ const styleHeading = style({
 			lineHeight: 'normal',
 			margin: 0,
 			position: 'relative',
-
-			$nest: {
-				'span': {
-					color: color(theme.colorPrimaryDark).lighten('50%').toHexString(),
-					fontSize: percent(200),
-					display: 'inline-block',
-					left: -12,
-					position: 'absolute',
-					top: -10,
-				},
-			},
 		},
 	},
 })
