@@ -1,8 +1,14 @@
 import { component } from 'vue-tsx-support'
+import quoteStore, { Quote } from '@/store/quoteGardenStore'
 
 export default component({
 	name: 'QuoteDetails',
-	render() {
+	computed: {
+		quote(): Quote {
+			return quoteStore.quotes.find(quote => quote.id === this.$route.params.id) as Quote
+		},
+	},
+	render(): JSX.Element {
 		return (
 			<main>
 				<header>
@@ -10,7 +16,8 @@ export default component({
 				</header>
 
 				<section>
-					{/* Quote Details goes here */}
+					<blockquote>{this.quote.quote}</blockquote>
+					<em>{this.quote.name}</em>
 				</section>
 			</main>
 		)

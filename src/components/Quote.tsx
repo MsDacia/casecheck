@@ -9,9 +9,8 @@ export default component({
 	},
 	render(): JSX.Element {
 		return (
-			<li key={this.quote.id}>
+			<li key={this.quote.id} onClick={() => this.$router.push({ name: 'quote', params: { id: this.quote.id } })}>
 				<p data-test="quote-text">{this.quote.quote}</p>
-				<p data-test="quote-author">{this.quote.name}</p>
 			</li>
 		)
 	},

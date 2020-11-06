@@ -8,13 +8,11 @@ const routes = [
 		component: () => import('@/views/Home'),
 		name: 'Home',
 		path: '/',
-		children: [
-			{
-				component: () => import('@/views/QuoteDetails'),
-				name: 'QuoteDetails',
-				path: ':id',
-			},
-		],
+	},
+	{
+		component: () => import('@/views/QuoteDetails'),
+		name: 'quote',
+		path: '/quote/:id',
 	},
 ]
 
