@@ -73,7 +73,7 @@ cssRule('button', {
 
 cssRule('.styled-quotes', {
 	color: color(theme.colorPrimaryDark).lighten('50%').toHexString(),
-	fontSize: percent(200),
+	fontSize: percent(120),
 	display: 'inline-block',
 	left: -12,
 	position: 'absolute',

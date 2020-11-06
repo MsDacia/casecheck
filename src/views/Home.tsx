@@ -1,5 +1,5 @@
 import { style } from 'typestyle'
-import { border, color, percent } from 'csx'
+import { border, percent } from 'csx'
 import * as theme from '@/ui/theme'
 
 import { component } from 'vue-tsx-support'
@@ -39,7 +39,7 @@ const styleHeading = style({
 
 	$nest: {
 		'h1': {
-			fontSize: percent(220),
+			fontSize: percent(300),
 			lineHeight: 'normal',
 			margin: 0,
 			position: 'relative',

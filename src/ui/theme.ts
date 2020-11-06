@@ -14,7 +14,7 @@ export const colorPrimaryDark = '#2F1c1c'
 export const colorPrimaryMedium = '#deb881'
 export const colorPrimaryLight = '#f1e9e7'
 
-export const colorSecondaryMedium = '#198F2F'
+export const colorSecondaryMedium = '#0000ff'
 export const colorSecondaryHover = color(colorSecondaryMedium).darken('5%').toHexString()
 
 export const inputStyle: NestedCSSProperties = {

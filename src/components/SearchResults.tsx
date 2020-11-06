@@ -43,13 +43,12 @@ export default component({
 const styleSelect = style({
 	...theme.inputStyle,
 	appearance: 'none',
+	fontSize: percent(200),
 	textTransform: 'lowercase',
 	width: percent(50),
 })
 
 const styleSearchResults = style({
 	margin: margin(40, 20),
-	maxHeight: 300,
-	overflowY: 'auto',
 	padding: 0,
 })

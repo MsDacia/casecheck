@@ -11,29 +11,45 @@ export default component({
 			return quoteStore.quotes.find(quote => quote.id === this.$route.params.id)
 		},
 	},
+	async mounted() {
+		if (!this.quote) {
+			await quoteStore.fetchQuotes('')
+			quoteStore.quotes.find(quote => quote.id === this.$route.params.id)
+		}
+	},
 	render(): JSX.Element {
 		return (
 			<main>
 				<header>
-					<button onClick={() => this.$router.go(-1)}>&#8592;</button>
+					<button
+						class={styleBackButton}
+						onClick={() => this.$router.go(-1)}
+					>&#10094;</button>
 				</header>
 
-				<section>
-					{!this.quote ?
-						<p class={styleNoResults}>
-							No deep thoughts here.<br />
-							<a onClick={() => this.$router.go(-1)}>Go back to previous page.</a>
-						</p>
-						:
-						<div>
-							<blockquote>{this.quote.quote}</blockquote>
-							<em>{this.quote.name}</em>
-						</div>
-					}
-				</section>
+				{!quoteStore.isProcessing &&
+					<section>
+						{!this.quote ?
+							<p class={styleNoResults}>
+								No deep thoughts here.<br />
+								<a onClick={() => this.$router.go(-1)}>Go back to previous page.</a>
+							</p>
+							:
+							<div class={styleBlockQuote}>
+								<span class="styled-quotes">&#8220;</span>
+								<blockquote>{this.quote.quote}</blockquote>
+								<em>&mdash; {this.quote.name ? this.quote.name : 'unknown'}</em>
+							</div>
+						}
+					</section>
+				}
 			</main>
 		)
 	},
+})
+
+const styleBackButton = style({
+	fontStyle: 'normal',
 })
 
 const styleNoResults = style({
@@ -45,6 +61,30 @@ const styleNoResults = style({
 	$nest: {
 		'a': {
 			fontSize: percent(75),
+		},
+	},
+})
+
+const styleBlockQuote = style({
+	fontSize: percent(300),
+	margin: '0 auto',
+	maxWidth: 700,
+	position: 'relative',
+	width: percent(100),
+
+	$nest: {
+		'span': {
+			$nest: {
+				'&.styled-quotes': {
+					fontSize: percent(400),
+					left: -38,
+					top: -30,
+				},
+			},
+		},
+
+		'blockquote': {
+			fontSize: percent(200),
 		},
 	},
 })

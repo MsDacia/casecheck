@@ -1,5 +1,6 @@
-import { style } from 'typestyle'
+import { media, style } from 'typestyle'
 import * as theme from '@/ui/theme'
+import { border } from 'csx'
 
 import { component } from 'vue-tsx-support'
 import quoteStore from '@/store/quoteGardenStore'
@@ -54,21 +55,40 @@ export default component({
 	},
 })
 
-const styleSearchBar = style({
-	display: 'flex',
-	marginTop: 40,
+const styleSearchBar = style(
+	{
+		display: 'flex',
+		marginTop: 40,
 
-	$nest: {
-		'input': {
-			...theme.inputStyle,
-			borderRight: '0 none',
-			maxWidth: 900,
-			width: 'auto',
-		},
+		$nest: {
+			'input': {
+				...theme.inputStyle,
+				borderRight: '0 none',
+				maxWidth: 900,
+				width: 'auto',
+			},
 
-		'button': {
-			minWidth: 100,
-			width: 'auto',
+			'button': {
+				minWidth: 100,
+				width: 'auto',
+			},
 		},
 	},
-})
+	media(
+		{
+			maxWidth: theme.computerBreakpoint,
+		}, {
+			flexDirection: 'column',
+
+			$nest: {
+				'input': {
+					border: border({
+						color: theme.colorPrimaryDark,
+						style: 'solid',
+						width: 1,
+					}),
+				},
+			},
+		},
+	),
+)

@@ -49,13 +49,14 @@ const styleQuote = style({
 
 			$nest: {
 				'span': {
-					paddingLeft: 20,
+					paddingLeft: 35,
 
 					$nest: {
 						'&.styled-quotes': {
-							left: -1,
+							fontSize: percent(150),
+							left: 10,
 							paddingLeft: 0,
-							top: -13,
+							top: -10,
 						},
 					},
 				},
